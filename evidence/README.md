@@ -9,3 +9,9 @@ Captured on a Sony Bravia XBR-49X800E (Android TV 9, 1920x1080, 2 px/dp) over ad
   vs the left edge of the first app tile (dashed guide), gear unfocused and focused.
 
 This branch holds only these assets and is not meant to be merged.
+
+- `hidden-apps-icons-before-after.gif` / `.mp4` / `hidden-apps-icons-frames.png` — Settings >
+  Applications, hiding three apps in a row on the Android TV emulator (API 36, 4K). Left/before:
+  icons stay behind while names shift. Right/after: rows keyed by package.
+- `new-app-sort-before-after.gif` / `new-app-sort-frames.png` — installing an app while the
+  TV Apps section is sorted alphabetically. Before: appended at the end. After: sorted into place.
