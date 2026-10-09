@@ -15,3 +15,8 @@ This branch holds only these assets and is not meant to be merged.
   icons stay behind while names shift. Right/after: rows keyed by package.
 - `new-app-sort-before-after.gif` / `new-app-sort-frames.png` — installing an app while the
   TV Apps section is sorted alphabetically. Before: appended at the end. After: sorted into place.
+- `issue128-back-screensaver.gif` / `.mp4` — Back set to Show screensaver, on the Android TV
+  emulator (API 36). Left/before: nothing happens. Right/after: the screensaver starts.
+- `sony-screensaver-settings-before-after.png` — Display & Screensaver > Screensaver Settings on
+  the Bravia. Before: Sony's top-level Settings. After: Sony's Screen saver page. Account and
+  Wi-Fi names are blanked out.
