@@ -20,3 +20,7 @@ This branch holds only these assets and is not meant to be merged.
 - `sony-screensaver-settings-before-after.png` — Display & Screensaver > Screensaver Settings on
   the Bravia. Before: Sony's top-level Settings. After: Sony's Screen saver page. Account and
   Wi-Fi names are blanked out.
+- `new-section-before-after.gif` / `.mp4` — Settings > Interface > Sections > Add section, a
+  Games category, Save, on the Android TV emulator (API 36, release builds on #151's toolchain).
+  Before: the form stays with Save greyed out, then turns into "Modify section", whose Delete does
+  nothing. After: back on the Sections list with the new section.
