@@ -191,6 +191,22 @@ void main() {
 
     expect(names, containsAll(["ltv_backup_20260501_120000.json", "ltv_backup_20261024_120000.json"]));
   });
+
+  test("Backup list shows a backup once when several folders hold a copy of it", () async {
+    final originalPathProvider = PathProviderPlatform.instance;
+    addTearDown(() => PathProviderPlatform.instance = originalPathProvider);
+    final externalDir = Directory('${tempDir.path}/external')..createSync();
+    PathProviderPlatform.instance = _AndroidPathProviderPlatform(externalDir.path, tempDir.path);
+
+    final downloadDir = Directory('${externalDir.path}/Download')..createSync();
+    File('${downloadDir.path}/ltv_backup_20261024_120000.json').writeAsStringSync('{"version": 1}');
+    File('${tempDir.path}/ltv_backup_20261024_120000.json').writeAsStringSync('{"version": 1}');
+    File('${downloadDir.path}/ltv_backup_20261024_130000.json').writeAsStringSync('{"version": 1}');
+
+    final names = (await backupService.getBackupFiles()).map((entry) => entry.name).toList();
+
+    expect(names..sort(), ["ltv_backup_20261024_120000.json", "ltv_backup_20261024_130000.json"]);
+  });
 }
 
 /// Mirrors path_provider_android 2.3+, which maps getDownloadsDirectory() to `<external files>/Download`.
