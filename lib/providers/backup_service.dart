@@ -67,6 +67,12 @@ class BackupService {
       addDir(await getDownloadsDirectory());
     } catch (_) {}
     try {
+      // Before path_provider_android 2.3, getDownloadsDirectory() returned
+      // <external files>/downloads; keep listing backups exported there.
+      final external = await getExternalStorageDirectory();
+      if (external != null) addDir(Directory(path.join(external.path, 'downloads')));
+    } catch (_) {}
+    try {
       addDir(await getExternalStorageDirectory());
     } catch (_) {}
     try {
