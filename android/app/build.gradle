@@ -112,6 +112,15 @@ android {
         }
     }
 
+    // Keep native libraries compressed, as they were with minSdk 21. Stored
+    // uncompressed (AGP's default from minSdk 23), they double every APK and
+    // push the universal APK past IzzyOnDroid's 30 MB limit.
+    packaging {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
+
     splits {
         abi {
             // https://stackoverflow.com/a/39950584/21037183
